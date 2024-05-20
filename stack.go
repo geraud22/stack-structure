@@ -6,20 +6,20 @@ import (
 )
 
 type Node struct {
-	data     int
-	nextNode *Node
+	data       int
+	linkedNode *Node
 }
 
 type Stack struct {
-	top  *Node
-	size int
+	topNode *Node
+	size    int
 }
 
 func (s *Stack) push(data int) {
 	n := new(Node)
 	n.data = data
-	n.nextNode = s.top
-	s.top = n
+	n.linkedNode = s.topNode
+	s.topNode = n
 	s.size += 1
 }
 
@@ -27,18 +27,18 @@ func (s *Stack) pop() int {
 	if s.is_empty() {
 		log.Fatal("The Stack is empty.")
 	}
-	popped_node := s.top
-	s.top = s.top.nextNode
+	popped_node := s.topNode
+	s.topNode = s.topNode.linkedNode
 	s.size -= 1
 	return popped_node.data
 }
 
 func (s *Stack) is_empty() bool {
-	return s.top == nil
+	return s.topNode == nil
 }
 
 func (s *Stack) peek() int {
-	return s.top.data
+	return s.topNode.data
 }
 
 func main() {
