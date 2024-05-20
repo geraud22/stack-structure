@@ -51,4 +51,7 @@ func main() {
 	fmt.Println("You just popped: ", s.pop())
 	fmt.Println("Top of the stack: ", s.peek())
 	fmt.Println("Stack Size: ", s.size)
+	fmt.Println("You just popped: ", s.pop())
+	fmt.Println("You just popped: ", s.pop())
+	fmt.Println("You just popped: ", s.pop())
 }
