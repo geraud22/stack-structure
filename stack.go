@@ -37,12 +37,18 @@ func (s *Stack) is_empty() bool {
 	return s.top == nil
 }
 
+func (s *Stack) peek() int {
+	return s.top.data
+}
+
 func main() {
 	var s Stack
 	s.push(10)
 	s.push(20)
 	s.push(30)
 	fmt.Println(s)
+	fmt.Println("Top of the stack: ", s.peek())
 	fmt.Println("You just popped: ", s.pop())
-	fmt.Println(s)
+	fmt.Println("Top of the stack: ", s.peek())
+	fmt.Println("Stack Size: ", s.size)
 }
