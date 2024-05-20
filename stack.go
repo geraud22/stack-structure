@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"log"
+)
+
 type Node struct {
 	data     int
 	nextNode *Node
@@ -18,9 +23,26 @@ func (s *Stack) push(data int) {
 	s.size += 1
 }
 
+func (s *Stack) pop() int {
+	if s.is_empty() {
+		log.Fatal("The Stack is empty.")
+	}
+	popped_node := s.top
+	s.top = s.top.nextNode
+	s.size -= 1
+	return popped_node.data
+}
+
+func (s *Stack) is_empty() bool {
+	return s.top == nil
+}
+
 func main() {
 	var s Stack
 	s.push(10)
 	s.push(20)
 	s.push(30)
+	fmt.Println(s)
+	fmt.Println("You just popped: ", s.pop())
+	fmt.Println(s)
 }
